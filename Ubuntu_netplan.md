@@ -91,3 +91,26 @@
     ubuntu@ubuntu:~$ sudo netplan set "vlans.eth0\.100={id: 100, link: eth0}"
     ubuntu@ubuntu:~$ sudo netplan set "vlans.eth0\.100.addresses=[10.0.100.10/24]"
     ``` 
+  - *Example 4*: To create three VRFs:
+    - VRF#1: vrf name `app-100` and table id `100`
+    - VRF#2: vrf name `app-200` and table id `200`
+    - VRF#3: vrf name `app-300` and table id `300`
+    ```
+    ubuntu@Ubuntu:~$ sudo netplan set "vrfs.app-100.table=100"
+    ubuntu@Ubuntu:~$ sudo netplan set "vrfs.app-200.table=200"
+    ubuntu@Ubuntu:~$ sudo netplan set "vrfs.app-300.table=300"
+    ```
+     - Verify if all new configurations are correctly taken by netplan:
+    ```
+    ubuntu@ubuntu:~$ sudo netplan get
+    <output omitted>
+    vrfs:
+      app-100:
+        table: 100
+      app-200:
+        table: 200
+      app-300:
+        table: 300
+    ubuntu@ubuntu:~$
+    ```
+    
