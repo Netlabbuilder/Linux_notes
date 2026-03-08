@@ -75,8 +75,19 @@
   ```
 - `netplan set` writes a given key/value pair or YAML subtree into a YAML file from `/{etc,lib,run}/netplan/` and validates its format.
 
-  - *Example 1*: To disable DHCPv4 and DHCPv6 on interface eth0:
+  - *Example 1*: To disable DHCPv4 and DHCPv6 on interface `eth0`:
     ```
     ubuntu@ubuntu:~$ sudo netplan set ethernets.eth0.dhcp4=false
     ubuntu@ubuntu:~$ sudo netplan set ethernets.eth0.dhcp6=false
+    ```
+  - *Example 2*: To set an IPv4 address of `192.168.0.11` with subnet mask `255.255.255.0` (or `192.168.0.11/24`) for interface `eth1`:
+    ```
+    ubuntu@ubuntu:~$ sudo netplan set "ethernets.eth1.addresses=[192.168.0.11/24]"
+    ```
+  - *Example 3*: To create a sub-interface `eth0.100` (vlan id 100, or dot1q tag 100 under interface `eth0`), then assign an IP address of `10.0.100.10` with subnet mask `255.255.255.0` (or `10.0.100.10/24`) to it.
+    
+    Bear in mind that we must use the `\.` to escapte the character `.` used to define the sub-interface `eth0.100` so that Bash Shell understands and takes them as a whole: 
+    ```
+    ubuntu@ubuntu:~$ sudo netplan set "vlans.eth0\.100={id: 100, link: eth0}"
+    ubuntu@ubuntu:~$ sudo netplan set "vlans.eth0\.100.addresses=[10.0.100.10/24]"
     ``` 
