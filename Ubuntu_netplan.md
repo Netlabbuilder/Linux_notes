@@ -100,7 +100,7 @@
     ubuntu@Ubuntu:~$ sudo netplan set "vrfs.app-200.table=200"
     ubuntu@Ubuntu:~$ sudo netplan set "vrfs.app-300.table=300"
     ```
-     - Verify if all new configurations are correctly taken by netplan:
+     - Verify if all new configurations are correctly written to netplan `*.yaml` files:
     ```
     ubuntu@ubuntu:~$ sudo netplan get
     <output omitted>
