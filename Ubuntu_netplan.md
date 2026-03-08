@@ -74,3 +74,9 @@
   ubuntu@ubuntu:~$
   ```
 - `netplan set` writes a given key/value pair or YAML subtree into a YAML file from `/{etc,lib,run}/netplan/` and validates its format.
+
+  - *Example 1*: To disable DHCPv4 and DHCPv6 on interface eth0:
+    ```
+    ubuntu@ubuntu:~$ sudo netplan set ethernets.eth0.dhcp4=false
+    ubuntu@ubuntu:~$ sudo netplan set ethernets.eth0.dhcp6=false
+    ``` 
