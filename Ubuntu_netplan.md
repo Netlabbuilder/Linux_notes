@@ -6,9 +6,9 @@
 - [Github page](https://github.com/canonical/netplan)
 
 #### Netplan CLI
-- `netplan get` - reads all YAML files from /{etc,lib,run}/netplan/*.yaml and returns a merged view of the current configuration.
+- `netplan get` - reads all YAML files from `/{etc,lib,run}/netplan/*.yaml` and returns a merged view of the current configuration.
   
-  The below outputs show that there are three `.yaml` files, each has different content. The `netplan get` returns a merged view of all of them:
+  The below outputs show that there are three `.yaml` files (`40-air.yaml`, `50-cloud-init.yaml` and `70-netplan-set.yaml`) in `/etc/netplan/` folder. Each file has different content. The `netplan get` returns a merged view of all of them:
   ```
   ubuntu@ubuntu:~$ ls -l /etc/netplan/
   total 12
@@ -73,3 +73,4 @@
         link: "eth0"
   ubuntu@ubuntu:~$
   ```
+- `netplan set` writes a given key/value pair or YAML subtree into a YAML file from `/{etc,lib,run}/netplan/` and validates its format.
