@@ -1,11 +1,13 @@
 # Quick notes on how to work with Canonial Netplan
 
-#### Reference Resources
+### Reference Resources
 - [Official page](https://netplan.io/)
 - [Readthedocs page](https://netplan.readthedocs.io/)
 - [Github page](https://github.com/canonical/netplan)
 
-#### Netplan CLI
+### Netplan CLI
+**IMPORTANT** - All changes will not be applied until the command `netplan apply` is issued.
+- `netplan apply` - apply configuration from Netplan YAML files to a running system
 - `netplan get` - reads all YAML files from `/{etc,lib,run}/netplan/*.yaml` and returns a merged view of the current configuration.
   
   The below outputs show that there are three `.yaml` files (`40-air.yaml`, `50-cloud-init.yaml` and `70-netplan-set.yaml`) in `/etc/netplan/` folder. Each file has different content. The `netplan get` returns a merged view of all of them:
