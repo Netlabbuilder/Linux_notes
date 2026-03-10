@@ -6,7 +6,11 @@
 - [Github page](https://github.com/canonical/netplan)
 
 ### Netplan CLI
-**IMPORTANT** - All changes will not be applied until the command `netplan apply` is issued.
+**IMPORTANT**
+- Run `netplan apply` to apply all changes made by `netplan set` command
+- Reboot the machine after issuing `netplan apply` and check if the new settings/changes are persistent
+
+**USAGE**
 - `netplan apply` - apply configuration from Netplan YAML files to a running system
 - `netplan get` - reads all YAML files from `/{etc,lib,run}/netplan/*.yaml` and returns a merged view of the current configuration.
   
