@@ -8,7 +8,7 @@ Please use **nmcli** or **nmtui** to make the network configuration persistent!
   ```
   sudo nmcli connection modify "Wired connection 1" ipv4.method manual ipv4.address 192.168.56.11/24
   ```
-- To bring the connection down and up:
+- To apply new changes, bring the connection down and up:
   ```
   sudo nmcli connection down "Wired connection 1"
   sudo nmcli connection up "Wired connection 1"
