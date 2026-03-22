@@ -118,5 +118,5 @@ Address: 2a00:1450:4001:811::200e
 
 ```
 
-5. Using `ping -4`, `ping -6` or `ping6`
+5. `ping -4`, `ping -6` or `ping6`
 
