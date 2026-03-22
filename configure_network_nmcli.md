@@ -223,12 +223,17 @@ Below are examples of using **nmcli** to configure network changes:
 - To make configuration changes (DHCP  method: auto or manual, ip address, gateway, dns ...) on a connection, use `nmcli connection modify`
   
   ```
-  $ nmcli connection modify ens33 ipv4.method manual ipv4.address 192.168.56.11/24 ipv4.gateway 192.168.56.1
+  $ nmcli connection modify ens33.100 ipv4.method manual ipv4.address 192.168.56.11/24 ipv4.gateway 192.168.56.1
+  ```
+- To add a new vlan (dot1q or sub-interface) connection, use `nmcli conn add`. Below example is to add new connection `ens33.100`, `vlan` type with vlan id `100` under `ens33`
+
+  ```
+  $ nmcli connection add type vlan con-name ens33.100 dev ens33 id 100
   ```
 - To apply new changes, bring the connection `down` and `up`
   
   ```
-  $ sudo nmcli connection down ens33
-  $ sudo nmcli connection up ens33
+  $ sudo nmcli connection down ens33.100
+  $ sudo nmcli connection up ens33.100
   ```
 - Last but not lease, for the first network changes, reboot the machine and confirm that the network changes are persistent.
