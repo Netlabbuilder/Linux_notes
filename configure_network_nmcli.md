@@ -208,7 +208,14 @@ Below are examples of using **nmcli** to configure network changes:
   IP4.GATEWAY:                            --
   IP6.GATEWAY:                            --
   ```
-
+- To show the status for all devices, use `nmcli device status`
+  ```
+  $ nmcli device status
+  DEVICE      TYPE      STATE                   CONNECTION
+  ens33.100  vlan      connected               ens33.100
+  lo          loopback  connected (externally)  lo
+  ens33       ethernet  disconnected            --
+  ```
 - To make configuration changes (DHCP  method: auto or manual, ip address, gateway, dns ...) on a connection, use `nmcli connection modify`:
   ```
   $ nmcli connection modify ens33 ipv4.method manual ipv4.address 192.168.56.11/24 ipv4.gateway 192.168.56.1
