@@ -216,7 +216,7 @@ Below are examples of using **nmcli** to configure network changes:
   ```
   $ nmcli device status
   DEVICE      TYPE      STATE                   CONNECTION
-  ens33.100  vlan      connected               ens33.100
+  ens33.100   vlan      connected               ens33.100
   lo          loopback  connected (externally)  lo
   ens33       ethernet  disconnected            --
   ```
