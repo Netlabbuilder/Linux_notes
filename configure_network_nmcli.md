@@ -15,7 +15,7 @@ Below are examples of using **nmcli** to configure network changes:
   ```
 - To list all details of a connection, use `nmcli conn show <connection_name>`
   ```
-  $ nmcli conn show ens33.2510
+  $ nmcli conn show ens33.100
   connection.id:                          ens33.100
   connection.uuid:                        c4ac41ec-00f2-45e1-9add-7cad6c8c249f
   connection.stable-id:                   --
