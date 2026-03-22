@@ -61,8 +61,8 @@ Below are examples of using **nmcli** to configure network changes:
   ```
 - To apply new changes, bring the connection `down` and `up`
   ```
-  sudo nmcli connection down ens33
-  sudo nmcli connection up ens33
+  $ sudo nmcli connection down ens33
+  $ sudo nmcli connection up ens33
   ```
 - To verify the changes:
   ```
