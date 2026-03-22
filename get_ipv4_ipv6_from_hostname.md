@@ -1,6 +1,6 @@
 To get the IPv4 and IPv6 addresses of a public domain name on RHEL, use the following methods:
 
-1. Using `getent`
+1. `getent`
 
 >This method queries the system's Name Service Switch (NSS) configuration:
 
@@ -25,7 +25,7 @@ To get the IPv4 and IPv6 addresses of a public domain name on RHEL, use the foll
 
 ```
 
-2. Using `dig`
+2. `dig`
 
 ```
 [hungtx@linux ~]$ dig A youtube.com +short
@@ -35,7 +35,7 @@ To get the IPv4 and IPv6 addresses of a public domain name on RHEL, use the foll
 [hungtx@linux ~]$ 
 ```
 
-3. Using `host`
+3. `host`
 
 ```
 [hungtx@linux ~]$ host -t A youtube.com
@@ -85,7 +85,7 @@ Received 188 bytes from 192.168.178.1#53 in 5 ms
 [hungtx@linux ~]$ 
 ```
 
-4. Using `nslookup`
+4. `nslookup`
 
 ```
 hungtx@linux ~]$ nslookup youtube.com
