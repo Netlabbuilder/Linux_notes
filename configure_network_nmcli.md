@@ -166,7 +166,7 @@ Below are examples of using **nmcli** to configure network changes:
   IP6.ADDRESS[1]:                         fe80::72a:1413:609c:8f78/64
   IP6.GATEWAY:                            --
   IP6.ROUTE[1]:                           dst = fe80::/64, nh = ::, mt = 1024
-```
+  ```
 - To list current devices, use `nmcli device show`
   ```
   $ nmcli device show
