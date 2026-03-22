@@ -6,6 +6,7 @@ Please use **nmcli** or **nmtui** to make the network configuration persistent!
 
 Below are examples of using **nmcli** to configure network changes:
 - To list current connections, use `nmcli conn show`
+  
   ```
   $ nmcli conn show
   NAME        UUID                                  TYPE      DEVICE
@@ -14,6 +15,7 @@ Below are examples of using **nmcli** to configure network changes:
   lo          416702f3-6d6d-4354-a422-99797abda818  loopback  lo
   ```
 - To list all details of a connection, use `nmcli conn show <connection_name>`
+  
   ```
   $ nmcli conn show ens33.100
   connection.id:                          ens33.100
@@ -168,6 +170,7 @@ Below are examples of using **nmcli** to configure network changes:
   IP6.ROUTE[1]:                           dst = fe80::/64, nh = ::, mt = 1024
   ```
 - To list current devices, use `nmcli device show`
+  
   ```
   $ nmcli device show
   GENERAL.DEVICE:                         ens33.100
@@ -209,6 +212,7 @@ Below are examples of using **nmcli** to configure network changes:
   IP6.GATEWAY:                            --
   ```
 - To show the status for all devices, use `nmcli device status`
+  
   ```
   $ nmcli device status
   DEVICE      TYPE      STATE                   CONNECTION
@@ -216,20 +220,15 @@ Below are examples of using **nmcli** to configure network changes:
   lo          loopback  connected (externally)  lo
   ens33       ethernet  disconnected            --
   ```
-- To make configuration changes (DHCP  method: auto or manual, ip address, gateway, dns ...) on a connection, use `nmcli connection modify`:
+- To make configuration changes (DHCP  method: auto or manual, ip address, gateway, dns ...) on a connection, use `nmcli connection modify`
+  
   ```
   $ nmcli connection modify ens33 ipv4.method manual ipv4.address 192.168.56.11/24 ipv4.gateway 192.168.56.1
   ```
 - To apply new changes, bring the connection `down` and `up`
+  
   ```
   $ sudo nmcli connection down ens33
   $ sudo nmcli connection up ens33
-  ```
-- To verify the changes:
-  ```
-  nmcli
-  nmcli device status
-  nmcli device show
-  nmcli connection show
   ```
 - Last but not lease, for the first network changes, reboot the machine and confirm that the network changes are persistent.
