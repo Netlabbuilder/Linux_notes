@@ -90,33 +90,36 @@
     ```
     ubuntu@ubuntu:~$ sudo netplan set "ethernets.eth1.addresses=[192.168.0.11/24]"
     ```
-  - *Example 3*: To create a sub-interface `eth0.100` (vlan id 100, or dot1q tag 100 under interface `eth0`), then assign an IP address of `10.0.100.10` with subnet mask `255.255.255.0` (or `10.0.100.10/24`) to it.
+  - *Example 3*: To create a sub-interface `eth0.100` (vlan id 100, or dot1q tag 100 under interface `eth0`), then assign an IP address of `10.0.100.10` with subnet mask `255.255.255.0` (or `10.0.100.10/24`) to it. The default gateway (`default` route) of this vlan interface is `10.0.100.1`:
     
     Bear in mind that we must use the `\.` to escapte the character `.` used to define the sub-interface `eth0.100` so that Bash Shell understands and takes them as a whole: 
     ```
     ubuntu@ubuntu:~$ sudo netplan set "vlans.eth0\.100={id: 100, link: eth0}"
     ubuntu@ubuntu:~$ sudo netplan set "vlans.eth0\.100.addresses=[10.0.100.10/24]"
+    ubuntu@ubuntu:~$ sudo netplan set "vlans.eth0\.100.routes=[{to: "default", via: "10.0.100.1"}]"
     ``` 
   - *Example 4*: To create three VRFs:
     - VRF#1: vrf name `app-100` and table id `100`
     - VRF#2: vrf name `app-200` and table id `200`
     - VRF#3: vrf name `app-300` and table id `300`
-    ```
-    ubuntu@Ubuntu:~$ sudo netplan set "vrfs.app-100.table=100"
-    ubuntu@Ubuntu:~$ sudo netplan set "vrfs.app-200.table=200"
-    ubuntu@Ubuntu:~$ sudo netplan set "vrfs.app-300.table=300"
-    ```
+
+      ```
+      ubuntu@Ubuntu:~$ sudo netplan set "vrfs.app-100.table=100"
+      ubuntu@Ubuntu:~$ sudo netplan set "vrfs.app-200.table=200"
+      ubuntu@Ubuntu:~$ sudo netplan set "vrfs.app-300.table=300"
+      ```
      - Verify if all new configurations are correctly written to netplan `*.yaml` files:
-    ```
-    ubuntu@ubuntu:~$ sudo netplan get
-    <output omitted>
-    vrfs:
-      app-100:
-        table: 100
-      app-200:
-        table: 200
-      app-300:
-        table: 300
-    ubuntu@ubuntu:~$
-    ```
+       
+        ```
+        ubuntu@ubuntu:~$ sudo netplan get
+        <output omitted>
+        vrfs:
+          app-100:
+            table: 100
+          app-200:
+            table: 200
+          app-300:
+            table: 300
+        ubuntu@ubuntu:~$
+        ```
     
