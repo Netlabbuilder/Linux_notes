@@ -1,17 +1,17 @@
 # Quick notes on how to work with Canonial Netplan
 
-### Reference Resources
+### Reference Resources:
 - [Official page](https://netplan.io/)
 - [Readthedocs page](https://netplan.readthedocs.io/)
 - [Github page](https://github.com/canonical/netplan)
 
-### Netplan CLI
-**IMPORTANT**
+### Netplan CLI:
+#### IMPORTANT
 - Run `netplan apply` to apply all changes made by `netplan set` command
 - Reboot the machine after issuing `netplan apply` and check if the new settings/changes are persistent
 
-**USAGE**
-- `netplan apply` - apply configuration from Netplan YAML files to a running system
+#### USAGE
+- `netplan apply` - apply configuration from Netplan YAML files to a running system.
 - `netplan get` - reads all YAML files from `/{etc,lib,run}/netplan/*.yaml` and returns a merged view of the current configuration.
   
   The below outputs show that there are three `.yaml` files (`40-air.yaml`, `50-cloud-init.yaml` and `70-netplan-set.yaml`) in `/etc/netplan/` folder. Each file has different content. The `netplan get` returns a merged view of all of them:
@@ -79,7 +79,7 @@
         link: "eth0"
   ubuntu@ubuntu:~$
   ```
-- `netplan set` writes a given key/value pair or YAML subtree into a YAML file from `/{etc,lib,run}/netplan/` and validates its format.
+- `netplan set` - writes a given key/value pair or YAML subtree into a YAML file from `/{etc,lib,run}/netplan/` and validates its format.
 
   - *Example 1*: To disable DHCPv4 and DHCPv6 on interface `eth0`:
     ```
