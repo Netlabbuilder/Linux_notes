@@ -1,10 +1,11 @@
-**IMPORTANT NOTE**\
+#### IMPORTANT
+
 The `ip address add` command is to temporarily set an IP address on a network interface.\
-This means the result of `ip address add` command, and also the results of other `ip` commands are non-persistent. They will be lost after the system is rebooted.\
+This means the result of `ip address add` command, and also the results of other `ip` commands are non-persistent. They will be lost after the system is rebooted.
 
-Please use **nmcli** or **nmtui** to make the network configuration persistent!
+Please use `nmcli` or ``mtui``to make the network configuration persistent!
 
-Below are examples of using **nmcli** to configure network changes:
+Below are examples of using `nmcli` to configure network changes:
 - To list current connections, use `nmcli conn show`
   
   ```
