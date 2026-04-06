@@ -14,7 +14,7 @@
 - `netplan apply` - apply configuration from Netplan YAML files to a running system.
 - `netplan get` - reads all YAML files from `/{etc,lib,run}/netplan/*.yaml` and returns a merged view of the current configuration.
   
-  The below outputs show that there are three `.yaml` files (`40-air.yaml`, `50-cloud-init.yaml` and `70-netplan-set.yaml`) in `/etc/netplan/` folder. Each file has different content. The `netplan get` returns a merged view of all of them:
+  The below outputs show that there are three `.yaml` files (`40-air.yaml`, `50-cloud-init.yaml` and `70-netplan-set.yaml`) in `/etc/netplan/` folder. Each file has different content:
   ```
   ubuntu@ubuntu:~$ ls -l /etc/netplan/
   total 12
@@ -53,6 +53,10 @@
         routes:
         - to: default
           via: 10.0.100.1
+  ```
+  The `netplan get` returns a merged view of all of them:
+  
+  ```
   ubuntu@ubuntu:~$ sudo netplan get
   network:
     version: 2
